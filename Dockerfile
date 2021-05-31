@@ -48,6 +48,9 @@ RUN chmod 600 /etc/tacacs+/tac_plus.conf
 RUN apt-get update && \
     rm -rf /var/cache/apt/*
 
-# Run tac_plus as foreground process and use /etc/tacacas+/tac_plus.conf as the config file
-CMD ["/tacacs/sbin/tac_plus", "-G", "-C", "/etc/tacacs+/tac_plus.conf"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
+EXPOSE 22
+EXPOSE 49
+
+ENTRYPOINT ["docker-entrypoint.sh"]
