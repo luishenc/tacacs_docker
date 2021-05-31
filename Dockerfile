@@ -11,7 +11,7 @@ ADD https://github.com/luishenc/tacacs_docker/raw/main/tacacs-F4.0.4.28.tar.gz t
 
 # Update & upgrades
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y gcc make flex libwrap0-dev bison apt-utils openssh-server && \
+    apt-get install -y gcc make flex libwrap0-dev bison apt-utils openssh-server iputils-ping telnet && \
     tar -xzf tacacs-F4.0.4.28.tar.gz && \
     cd tacacs-F4.0.4.28 && \
     ./configure --prefix=/tacacs && \
