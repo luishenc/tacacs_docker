@@ -47,6 +47,4 @@ RUN chmod 600 /etc/tacacs+/tac_plus.conf
 RUN apt-get update && \
     rm -rf /var/cache/apt/*
 
-EXPOSE 49
-
 ENTRYPOINT service ssh start && /tacacs/sbin/tac_plus -G -C /etc/tacacs+/tac_plus.conf
