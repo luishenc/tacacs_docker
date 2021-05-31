@@ -54,4 +54,4 @@ RUN chmod +x /docker-entrypoint.sh
 EXPOSE 22
 EXPOSE 49
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
