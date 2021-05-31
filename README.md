@@ -12,3 +12,10 @@ If you use the host ip to ssh into the container, run the below command:
 ```
 ssh -l netadm -p 2222 localhost
 ```
+# Tacacs+ configuration
+### Users:
+At this point, the configuration has 2 users.\
+1. user: netadm - pass: netadm@01\
+2. user: netusr - pass: netusr@01
+
+The '**netadm**' user has full privileges, while the '**netusr**' user has only viewing privileges
