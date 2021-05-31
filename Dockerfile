@@ -49,6 +49,7 @@ RUN apt-get update && \
     rm -rf /var/cache/apt/*
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 22
 EXPOSE 49
