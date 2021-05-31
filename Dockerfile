@@ -11,8 +11,7 @@ ADD https://github.com/luishenc/tacacs_docker/raw/main/tacacs-F4.0.4.28.tar.gz t
 
 # Update & upgrades
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y gcc make flex libwrap0-dev bison apt-utils ssh && \
-    service ssh start && \
+    apt-get install -y gcc make flex libwrap0-dev bison apt-utils openssh-server && \
     tar -xzf tacacs-F4.0.4.28.tar.gz && \
     cd tacacs-F4.0.4.28 && \
     ./configure --prefix=/tacacs && \
@@ -48,10 +47,6 @@ RUN chmod 600 /etc/tacacs+/tac_plus.conf
 RUN apt-get update && \
     rm -rf /var/cache/apt/*
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-
-EXPOSE 22
 EXPOSE 49
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT service ssh start && /tacacs/sbin/tac_plus -G -C /etc/tacacs+/tac_plus.conf
