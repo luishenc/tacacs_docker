@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  tacacs_plus:
+    image: tacacs_plus:latest
+    container_name: tacacs_plus
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "192.168.122.1:49:49"
+

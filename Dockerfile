@@ -7,7 +7,7 @@ LABEL Version=1.0
 # Author of this Dockerfile
 LABEL maintainer="Luis Henrique Carneiro <luishenrique.carneiro@gmail.com>"
 
-ADD https://github.com/luishenc/tacacs_docker/raw/main/tacacs-F4.0.4.28.tar.gz tacacs-F4.0.4.28.tar.gz
+COPY tacacs-F4.0.4.28.tar.gz tacacs-F4.0.4.28.tar.gz
 
 # Update & upgrades
 RUN apt-get update && apt-get upgrade -y && \
