@@ -1,16 +1,12 @@
-# TACACS+ and SSH Server Docker Image
+# TACACS+ Docker Image
 # How to use
-I alread have ssh server running localy, so to access both I mapped port 22 from the container to port 2222 localy and keep tacacs server port as default:
+Build the image:
 ```
-docker run --name tac_plus -d -p 2222:22 -p 49:49 luishenc/tacacs_docker:latest
+docker compose build --no-cache
 ```
-This image also has ssh service enabled, to ssh into docker and use it as a jump server run the command below to get de ip address:
+Start the container:
 ```
-docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' tac_plus
-```
-If you use the host ip to ssh into the container, run the below command:
-```
-ssh -l netadm -p 2222 localhost
+docker compose up -d
 ```
 # Tacacs+ configuration
 ### Users:
@@ -18,4 +14,5 @@ At this point, the configuration has 2 users.
 1. user: netadm - pass: netadm@01
 2. user: netusr - pass: netusr@01
 
-The '**netadm**' user has full privileges, while the '**netusr**' user has only viewing privileges
+The '**netadm**' user has full privileges, while the '**netusr**' user has only
+viewing privileges
