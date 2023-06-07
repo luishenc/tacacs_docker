@@ -45,4 +45,4 @@ RUN chown root:root /etc/tacacs+/tac_plus.conf
 # Change permission to root only access
 RUN chmod 600 /etc/tacacs+/tac_plus.conf
 
-CMD ["/tacacs/sbin/tac_plus", "-G", "-C", "/etc/tacacs+/tac_plus.conf"]
+CMD ["/tacacs/sbin/tac_plus", "-G", "-C", "/etc/tacacs+/tac_plus.conf", "-d", "16", "-l", "/var/log/tac.acct"]
